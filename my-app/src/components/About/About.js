@@ -10,7 +10,7 @@ class About extends Component {
         <h1>Our Team</h1>
         <CardDeck className="carddeck">
         <Card>
-          <Card.Img variant="top" src="headshots/aaron.jpg" />
+          <Card.Img variant="top" src="headshots/aaron.jpg" alt="headshot" />
           <Card.Body>
             <Card.Title>Aaron Zhao</Card.Title>
             <Card.Text>
@@ -19,7 +19,7 @@ class About extends Component {
           </Card.Body>
         </Card>
         <Card className="card">
-          <Card.Img variant="top" src="headshots/harki.png" />
+          <Card.Img variant="top" src="headshots/harki.png" alt="headshot" />
           <Card.Body>
             <Card.Title>Harkiran Saluja</Card.Title>
             <Card.Text>
@@ -28,7 +28,7 @@ class About extends Component {
           </Card.Body>
         </Card>
         <Card className="card">
-          <Card.Img variant="top" src="headshots/vicky.png" />
+          <Card.Img variant="top" src="headshots/vicky.png" alt="headshot" />
           <Card.Body>
             <Card.Title>Victoria Huynh</Card.Title>
             <Card.Text>
@@ -37,7 +37,7 @@ class About extends Component {
           </Card.Body>
         </Card>
         <Card className="card">
-          <Card.Img variant="top" src="headshots/jill.jpg" />
+          <Card.Img variant="top" src="headshots/jill.jpg" alt="headshot" />
           <Card.Body>
             <Card.Title>Jill Nguyen</Card.Title>
             <Card.Text>

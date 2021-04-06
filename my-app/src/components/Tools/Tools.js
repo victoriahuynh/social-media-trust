@@ -9,7 +9,7 @@ class Tools extends Component {
       <div>
         <CardDeck className="carddeck">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -22,7 +22,7 @@ class Tools extends Component {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -35,7 +35,7 @@ class Tools extends Component {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -52,7 +52,7 @@ class Tools extends Component {
         </CardDeck>
         <CardDeck className="carddeck">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -65,7 +65,7 @@ class Tools extends Component {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -78,7 +78,7 @@ class Tools extends Component {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -94,7 +94,7 @@ class Tools extends Component {
         </CardDeck>
         <CardDeck className="carddeck">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -107,7 +107,7 @@ class Tools extends Component {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
@@ -120,7 +120,7 @@ class Tools extends Component {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>

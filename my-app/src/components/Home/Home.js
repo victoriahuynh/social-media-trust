@@ -13,21 +13,21 @@ class Home extends Component {
           <h1>Designing for Trust on Social Media</h1>
           <div class="images">
             <div class="hover-group">
-              <img src="dole777-EQSPI11rf68-unsplash.jpg" />
+              <img src="dole777-EQSPI11rf68-unsplash.jpg" alt="phone" />
               <div class="overlay">
                 <h3>Project Overview</h3>
                 <Button variant="warning" href="#overview">LEARN MORE</Button>
               </div>
             </div>
             <div class="hover-group">
-              <img src="dole777-EQSPI11rf68-unsplash.jpg" />
+              <img src="dole777-EQSPI11rf68-unsplash.jpg" alt="phone" />
               <div class="overlay">
                 <h3>What is trust?</h3>
                 <Button variant="warning" href="#trust">LEARN MORE</Button>
               </div>
             </div>
             <div class="hover-group">
-              <img src="dole777-EQSPI11rf68-unsplash.jpg" />
+              <img src="dole777-EQSPI11rf68-unsplash.jpg" alt="phone" />
               <div class="overlay">
                 <h3>What can you use this site for?</h3>
                 <Button variant="warning" href="#use">LEARN MORE</Button>
