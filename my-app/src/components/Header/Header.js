@@ -1,16 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
+import './Header.css'
 
 class Header extends Component {
 
   render() {
     return (
       <header>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">Designing for Trust on Social Media</Navbar.Brand>
+        <Navbar>
+          <Navbar.Brand href="/">
+            <img src="/CenterInformedPublic_UW.png" width='300px'/>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav className="ml-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="research">Research</Nav.Link>
               <Nav.Link href="tools">Design Tools</Nav.Link>
@@ -18,7 +21,7 @@ class Header extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-    </header>
+      </header>
     );
   }
 }
