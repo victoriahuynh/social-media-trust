@@ -7,6 +7,7 @@ class Tools extends Component {
   render() {
     return (
       <div>
+        <h1>UX Design Tool Kits</h1>
         <CardDeck className="carddeck">
           <Card>
             <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>

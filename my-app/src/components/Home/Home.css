@@ -1,65 +1,32 @@
-.Home h1, .Home h3{
-  font-weight: bolder;
-  padding-bottom: 12px;
+/* #jumbotron */
+#jumbotron {
+  margin-bottom: 0;
 }
 
-/* #idkwhattonamethis */
-#idkwhattonamethis {
-  background-color: #EEEEEE;
+#jumbotron h1 {
+  color: white;
+  font-size: 110px;
+  text-align: left;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+  width: 90%;
+  margin: auto;
 }
 
-#idkwhattonamethis h1 {
-  padding-top: 20px;
+#jumbotron p {
+  color: white;
+  font-size: 55px;
+  text-align: left;
 }
 
-#idkwhattonamethis .btn {
-  font-weight: bolder;
-  color: #074EE8
-}
-
-.images {
- display: flex;
-}
-
-/* https://www.w3schools.com/howto/howto_css_image_overlay.asp */
-
-.hover-group {
-  position: relative;
-  width: 50%;
-}
-
-.hover-group img {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.overlay {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.hover-group:hover img {
-  opacity: 0.3;
-}
-
-.hover-group:hover .overlay {
-  opacity: 1;
+#jumbotron .btn {
+  background-color: #074EE8;
+  border-color: #074EE8;
+  font-weight: bold;
 }
 
 /* #overview */
 #overview {
-  padding: 20px;
+  padding: 1.5rem;
   background-color: #074EE8;
   color: white;
 }
@@ -70,18 +37,22 @@
 
 /* #trust */
 #trust {
-  padding: 20px;
+  padding: 1.5rem;
+  background-color: white;
 }
 
-#trust p {
-  text-align: justify;
+#trust img {
+  width: 75vw;
+  margin: auto;
+  display: block;
+  height: 100vh;
 }
 
 /* #use */
 
 #use {
-  font-weight: bolder;
   background-color: #F1CE1E;
+  font-weight: bolder;
   overflow: auto;
 }
 
@@ -90,7 +61,7 @@
   float: left;
   width: 50%;
   margin: auto;
-  border-left: solid 1px #EEEEEE;
+  border-left: solid 1px #eee;
 }
 
 .icon {

@@ -1,11 +1,23 @@
-.carddeck {
+.team, .sponsor {
+  padding: 1rem;
+}
+
+.team .carddeck {
   margin: auto;
-  width: 65%;
+  width: 50%;
 }
 
-h1 {
-  padding: 25px 0px;
+.team .card {
+  background-color: transparent;
+  border: none;
 }
 
-/* center text
-make body smaller */
+.team .card-body, .team .card-title {
+  font-weight: bold;
+}
+
+.sponsor p {
+  font-size: larger;
+  text-align: left;
+  margin: 0 1rem;
+}

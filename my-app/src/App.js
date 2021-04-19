@@ -5,7 +5,7 @@ import Home from './components/Home/Home';
 import Research from './components/Research/Research';
 import Tools from './components/Tools/Tools';
 import About from './components/About/About';
-import {BrowserRouter as Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
