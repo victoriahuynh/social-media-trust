@@ -7,7 +7,7 @@ class About extends Component {
   render() {
     return (
       <div id="About">
-        <div class="team">
+        <div className="team">
           <h3>Our Team</h3>
           <CardDeck className="carddeck">
             <Row>
@@ -60,7 +60,7 @@ class About extends Component {
             </Row>
           </CardDeck>
         </div>
-        <div class="sponsor">
+        <div className="sponsor">
           <h3>Our Sponsor</h3>
           <p>
             The <strong>Center for the Informed Public (CIP)</strong> is an assembly of world-class researchers, 

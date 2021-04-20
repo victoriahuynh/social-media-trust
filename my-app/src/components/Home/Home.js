@@ -36,18 +36,18 @@ class Home extends Component {
           <img src="visual.svg" alt="visualization of trust"/>
         </div>
         <div id="use">
-          <div class="column">
+          <div className="column">
             <span className="icon fa-stack fa-3x">
-              <FontAwesomeIcon icon={faCircle} class="circle-icon fa-stack-2x"/>
-              <FontAwesomeIcon icon={faUserFriends} class="inner-icon fa-stack-1x"/>
+              <FontAwesomeIcon icon={faCircle} className="circle-icon fa-stack-2x"/>
+              <FontAwesomeIcon icon={faUserFriends} className="inner-icon fa-stack-1x"/>
             </span>
             <br />
             <p>Users can learn about the growing issues of misinformation in social media and actively become participants in fighting it.</p>
           </div>
-          <div class="column">
+          <div className="column">
           <span className="icon fa-stack fa-3x">
-              <FontAwesomeIcon icon={faCircle} class="circle-icon fa-stack-2x"/>
-              <FontAwesomeIcon icon={faPencilRuler} class="inner-icon fa-stack-1x"/>
+              <FontAwesomeIcon icon={faCircle} className="circle-icon fa-stack-2x"/>
+              <FontAwesomeIcon icon={faPencilRuler} className="inner-icon fa-stack-1x"/>
             </span>
             <br />
             <p>Designers can gain insights on how previous social media designs have worked to fight against misinformation and implement trust throughout the design process.</p>

@@ -1,5 +1,8 @@
-.carddeck {
-  padding: 10px;
+#Tools img {
+  height: 300px;
+  object-fit: contain;
 }
 
-/* about css conflicts */
+.card {
+  width: 500px;
+}

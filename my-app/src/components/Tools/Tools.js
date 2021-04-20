@@ -1,143 +1,54 @@
-import React, { Component } from "react";
-import { Card , CardDeck } from 'react-bootstrap';
 import './Tools.css';
+import React, { useEffect, useState} from 'react';
+import { Card, CardDeck } from 'react-bootstrap';
+import firebase from '../../firebase';
 
-class Tools extends Component {
+export default function Tools() {
+  const db = firebase.firestore();
+  const [tools, setTools] = useState([]);
+  const [cards, setCards] = useState([]);
 
-  render() {
-    return (
-      <div>
-        <h1>UX Design Tool Kits</h1>
+  useEffect(() => {
+    const fetchData = async() => {
+      db.collection('tools').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          setTools(prevTools => [...prevTools, doc.data()])
+        });
+      });
+    }
+    fetchData();
+    console.log('useeffect1called')
+  }, [])
+
+  useEffect(() => {
+    tools.forEach((tool, i) => {
+      setCards([]) //this is so jank
+      let description = tool.description.replaceAll("\\n", "\n"); //fix line breaks
+
+      setCards(prevCards => [...prevCards,
         <CardDeck className="carddeck">
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
+            <Card.Img variant="top" src={tool.image} alt="placeholder"/>
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title>{tool.title}</Card.Title>
               <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
+                {description}
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This card has supporting text below as a natural lead-in to additional
-                content.{' '}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This card has even longer content than the first to
-                show that equal height action.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          
-        </CardDeck>
-        <CardDeck className="carddeck">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This card has supporting text below as a natural lead-in to additional
-                content.{' '}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This card has even longer content than the first to
-                show that equal height action.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+              <small className="text-muted">{tool.sources}</small>
             </Card.Footer>
           </Card>
         </CardDeck>
-        <CardDeck className="carddeck">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This card has supporting text below as a natural lead-in to additional
-                content.{' '}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" alt="placeholder"/>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This card has even longer content than the first to
-                show that equal height action.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-        </CardDeck>
-      </div>
-    );
-  }
+      ])
+    })
+    console.log('useeffect2called')
+  }, [tools])
+
+  return (
+    <div id="Tools">
+      <h1>UX Design Tool Kits</h1>
+      {cards}
+    </div>
+  )
 }
-
-export default Tools;
