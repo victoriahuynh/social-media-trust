@@ -1,8 +1,8 @@
 import React, { useEffect, useState} from 'react';
 import { Badge, Card } from 'react-bootstrap';
-import firebase from '../../firebase';
+import firebase from '../../../firebase';
 import './Tool.css';
-import '../Cards.css';
+import '../../Cards.css';
 
 export default function Tool() {
   const db = firebase.firestore();

@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Research from './components/Research/Research';
 import Tools from './components/Tools/Tools';
-import Tool from './components/Tools/Tool';
+import Tool from './components/Tools/Tool/Tool';
 import About from './components/About/About';
 import { BrowserRouter as Switch, Route } from 'react-router-dom';
 

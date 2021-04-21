@@ -69,7 +69,7 @@ export default function Research() {
           <Card.Footer>
             {tags}
             <small>
-              <a href={data.link}><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
+              <a href={data.link} target="_blank"><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
               <Button variant="link" onClick={() => { 
                 let newArr =  [...showInsights];
                 newArr[i] = !newArr[i];

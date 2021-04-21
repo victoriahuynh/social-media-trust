@@ -5,3 +5,7 @@
 #Tools .card {
   height: 100%;
 }
+
+#Tools .col {
+  padding: 0;
+}
