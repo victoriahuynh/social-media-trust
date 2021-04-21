@@ -3,33 +3,5 @@
 }
 
 #Tools .card {
-  text-align: left;
-  color: white;
-}
-
-#Tools a {
-  color: white;
-}
-
-#Tools .card {
-  background-color: #074EE8;
   height: 100%;
-}
-
-#Tools .card-title {
-  font-weight: bold;
-}
-
-#Tools .badge {
-  background-color: white;
-  color: #074EE8;
-}
-
-#Tools small {
-  float: right;
-}
-
-#Tools form {
-  margin: auto;
-  width: 50vw;
 }

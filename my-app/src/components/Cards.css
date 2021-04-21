@@ -1,0 +1,35 @@
+#Research .card, #Tools .card {
+  text-align: left;
+  color: white;
+  background-color: #074EE8;
+}
+
+#Research a, #Tools a {
+  color: white;
+}
+
+
+#Research .card-title, #Tools .card-title {
+  font-weight: bold;
+}
+
+#Research .badge, #Tools .badge {
+  background-color: white;
+  color: #074EE8;
+  margin-right: 5px;
+}
+
+#Research small, #Tools small {
+  float: right;
+}
+
+#Research form, #Tools form {
+  margin: auto;
+  width: 50vw;
+}
+
+#Research svg, #Tools svg {
+  margin-right: 3px;
+}
+
+/* css moduels bruh moment */

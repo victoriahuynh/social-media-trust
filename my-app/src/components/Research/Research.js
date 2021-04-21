@@ -5,31 +5,51 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import firebase from '../../firebase';
 import './Research.css';
-
+import '../Cards.css';
 
 export default function Research() {
   const db = firebase.firestore();
   const [articles, setArticles] = useState([]);
   const [cards, setCards] = useState([]);
-  const [showInsights, setShowInsights] = useState(false);
+  const [showInsights, setShowInsights] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
-    const fetchData = async() => {
-      db.collection('research').get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          setArticles(prevArticles => [...prevArticles, doc.data()])
+    setArticles([]);
+    if (query != '') {
+      let splitQuery = query.toLowerCase().split(' ');
+      for (var i = 0; i < splitQuery.length; i++) {
+        splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
+      }
+      let parsedQuery = splitQuery.join(' '); 
+
+      const fetchData = async() => {
+        db.collection('research').where('tags', 'array-contains', parsedQuery).get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            setArticles(prevArticles => [...prevArticles, doc])
+          });
         });
-      });
+      }
+      fetchData();
+    } else {
+      const fetchData = async() => {
+        db.collection('research').get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            setArticles(prevArticles => [...prevArticles, doc])
+          });
+        });
+      }
+      fetchData();
     }
-    fetchData();
     console.log('useeffect1called')
-  }, [])
+  }, [query])
 
   useEffect(() => {
     let cards = []
     articles.forEach((article, i) => {
+      let data = article.data();
       let tags = []
-      article.tags.forEach((tag, i) => {
+      data.tags.forEach((tag, i) => {
         tags.push(
           <Badge pill>
             {tag}
@@ -40,29 +60,31 @@ export default function Research() {
       cards.push(
         <Card>
           <Card.Body>
-            <Card.Title>{article.title}</Card.Title>
+            <Card.Title>{data.title}</Card.Title>
             <Card.Text>
-              <p>{article.abstract}</p>
-              { showInsights ? null : <p>{article.insights}</p> }
+              <p>{data.abstract}</p>
+              { showInsights ? null : <p>Key Insights: <br/> {data.insights}</p> }
             </Card.Text>
           </Card.Body>
           <Card.Footer>
             {tags}
-            <small><a href={article.link}><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a></small>
-            <small><Button onClick={() => setShowInsights(true)}><FontAwesomeIcon icon={faEye}/><FontAwesomeIcon icon={faEyeSlash}/>Key Insights</Button></small>
+            <small><a href={data.link}><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a></small>
+            <small><Button onClick={() => { setShowInsights(prevShowInsights => !prevShowInsights); console.log(showInsights)}}><FontAwesomeIcon icon={faEye}/><FontAwesomeIcon icon={faEyeSlash}/>Key Insights</Button></small>
           </Card.Footer>
         </Card>
       )
     })
-    setCards(cards)
+    if (cards.length > 0) {
+      setCards(cards)
+    } else { setCards(['no results... or keep typing'])}
     console.log('useeffect2called')
-  }, [articles])
-  
+  }, [articles, showInsights])
+
   return (
     <div id="Research">
       <h1>Annotated Research</h1>
       <Form>
-        <FormControl type="text" placeholder="Search Keywords, Tags, or Articles..." className="mr-sm-2" />
+        <FormControl type="text" placeholder="Search Keywords, Tags, or Articles..." className="mr-sm-2" onChange={e => setQuery(e.target.value)}/>
       </Form>
       {cards}
     </div>

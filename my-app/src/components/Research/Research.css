@@ -1,35 +1,3 @@
 #Research .card {
-  text-align: left;
-  color: white;
   margin: 20px 10vw;
-}
-
-#Research a {
-  color: white;
-}
-
-#Research .card {
-  background-color: #074EE8;
-}
-
-#Research .card-title {
-  font-weight: bold;
-}
-
-#Research .badge {
-  background-color: white;
-  color: #074EE8;
-}
-
-#Research small {
-  float: right;
-}
-
-#Research form {
-  margin: auto;
-  width: 50vw;
-}
-
-#Research svg {
-  margin-right: 3px;
 }
