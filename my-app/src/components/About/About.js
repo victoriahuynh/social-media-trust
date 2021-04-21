@@ -9,7 +9,7 @@ class About extends Component {
       <div id="About">
         <div className="team">
           <h3>Our Team</h3>
-          <CardDeck className="carddeck">
+          <CardDeck>
             <Row>
               <Col>
                 <Card>

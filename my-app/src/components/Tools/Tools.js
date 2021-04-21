@@ -1,7 +1,11 @@
-import './Tools.css';
 import React, { useEffect, useState} from 'react';
-import { Card, CardDeck } from 'react-bootstrap';
+import { Badge, Card, CardDeck, Col, Form, FormControl } from 'react-bootstrap';
+import { HashRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import firebase from '../../firebase';
+import './Tools.css';
 
 export default function Tools() {
   const db = firebase.firestore();
@@ -21,33 +25,49 @@ export default function Tools() {
   }, [])
 
   useEffect(() => {
+    let rows = [];
+    let cols = [];
     tools.forEach((tool, i) => {
-      setCards([]) //this is so jank
-      let description = tool.description.replaceAll("\\n", "\n"); //fix line breaks
-
-      setCards(prevCards => [...prevCards,
-        <CardDeck className="carddeck">
+      let urlPath = "/info/" + i //change this
+      let tags = []
+      tool.tags.forEach((tag, i) => {
+        tags.push(
+          <Badge pill>
+            {tag}
+          </Badge>
+        )
+      })
+      cols.push(
+        <Col>
           <Card>
-            <Card.Img variant="top" src={tool.image} alt="placeholder"/>
             <Card.Body>
               <Card.Title>{tool.title}</Card.Title>
               <Card.Text>
-                {description}
+                {tool.description_short}
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">{tool.sources}</small>
+              {tags}
+              <small><Link to={urlPath}><FontAwesomeIcon icon={faGraduationCap}/>Learn More</Link></small>
             </Card.Footer>
           </Card>
-        </CardDeck>
-      ])
+        </Col>
+      );
+      if (i % 3 == 2 || i == tools.length - 1) {
+        rows.push(<CardDeck>{cols}</CardDeck>);
+        cols = [];
+      }
     })
+    setCards(rows)
     console.log('useeffect2called')
   }, [tools])
 
   return (
     <div id="Tools">
       <h1>UX Design Tool Kits</h1>
+      <Form>
+        <FormControl type="text" placeholder="Search Keywords, Tags, or Articles..." className="mr-sm-2" />
+      </Form>
       {cards}
     </div>
   )
