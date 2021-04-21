@@ -1,3 +1,14 @@
 #Research .card {
   margin: 20px 10vw;
 }
+
+#Research a {
+  padding-right: 10px;
+}
+
+#Research button {
+  border: none;
+  color: white;
+  font-size: 100%;
+  padding: 0;
+}

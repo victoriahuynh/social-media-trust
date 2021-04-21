@@ -2,6 +2,10 @@
   padding: 1rem;
 }
 
+.team img {
+  border-radius: 0;
+}
+
 .team .card-deck {
   margin: auto;
   width: 40%;

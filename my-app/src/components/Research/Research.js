@@ -11,11 +11,12 @@ export default function Research() {
   const db = firebase.firestore();
   const [articles, setArticles] = useState([]);
   const [cards, setCards] = useState([]);
-  const [showInsights, setShowInsights] = useState([]);
+  const [showInsights, setShowInsights] = useState([false]);
   const [query, setQuery] = useState('');
 
   useEffect(() => {
     setArticles([]);
+    setShowInsights([]);
     if (query != '') {
       let splitQuery = query.toLowerCase().split(' ');
       for (var i = 0; i < splitQuery.length; i++) {
@@ -56,20 +57,28 @@ export default function Research() {
           </Badge>
         )
       })
-
       cards.push(
-        <Card>
+        <Card id={"article_"+article.id}>
           <Card.Body>
             <Card.Title>{data.title}</Card.Title>
             <Card.Text>
               <p>{data.abstract}</p>
-              { showInsights ? null : <p>Key Insights: <br/> {data.insights}</p> }
+              { showInsights[i] ? <p>Key Insights: <br/> {data.insights}</p> : null }
             </Card.Text>
           </Card.Body>
           <Card.Footer>
             {tags}
-            <small><a href={data.link}><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a></small>
-            <small><Button onClick={() => { setShowInsights(prevShowInsights => !prevShowInsights); console.log(showInsights)}}><FontAwesomeIcon icon={faEye}/><FontAwesomeIcon icon={faEyeSlash}/>Key Insights</Button></small>
+            <small>
+              <a href={data.link}><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
+              <Button variant="link" onClick={() => { 
+                let newArr =  [...showInsights];
+                newArr[i] = !newArr[i];
+                setShowInsights(newArr);
+              }}>
+                {showInsights[i] ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}
+                Key Insights
+              </Button>
+            </small>
           </Card.Footer>
         </Card>
       )
@@ -77,7 +86,7 @@ export default function Research() {
     if (cards.length > 0) {
       setCards(cards)
     } else { setCards(['no results... or keep typing'])}
-    console.log('useeffect2called')
+    // console.log('useeffect2called')
   }, [articles, showInsights])
 
   return (

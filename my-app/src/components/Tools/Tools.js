@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import firebase from '../../firebase';
 import './Tools.css';
-import '../Cards.css'
+import '../Cards.css';
 
 export default function Tools() {
   const db = firebase.firestore();

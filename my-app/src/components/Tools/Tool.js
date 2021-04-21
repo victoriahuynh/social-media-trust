@@ -1,13 +1,22 @@
 import React, { useEffect, useState} from 'react';
-import { Card } from 'react-bootstrap';
+import { Badge, Card } from 'react-bootstrap';
 import firebase from '../../firebase';
+import './Tool.css';
+import '../Cards.css';
 
 export default function Tool() {
   const db = firebase.firestore();
-  const [tool, setTool] = useState({});
+
+  const [tool, setTool] = useState({
+    title: '',
+    description: '',
+    image: '',
+    sources: [],
+    tags: []
+  });
 
   useEffect(() => {
-    const toolID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+    let toolID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
 
     const fetchData = async() => {
       db.collection('tools').doc(toolID).get().then((doc) => {
@@ -15,22 +24,33 @@ export default function Tool() {
       });
     }
     fetchData();
-
-    console.log(tool);
   }, [])
 
-  return(
-    <div>
+  return (
+    <div id="Tool">
       <p>add back button</p>
       <Card>
         <Card.Body>
           <Card.Title>{tool.title}</Card.Title>
           <Card.Text>
-            <p>{tool.description}</p>
-            <p>{tool.tags}</p>
-            <p>{tool.sources}</p>
+            <img src={tool.image} alt="placeholder" />
+            {tool.description.split("\\n").map((paragraph, i) => {
+              return (<p>{paragraph}</p>)
+            })}
+            <small>
+              Sources:
+              <br/>
+              {tool.sources.map((source, i) => {
+                return (<li>{source}</li>)
+              })}
+            </small>
           </Card.Text>
         </Card.Body>
+        <Card.Footer>
+          {tool.tags.map((tag, i) => {
+            return (<Badge pill>{tag}</Badge>)
+          })}
+        </Card.Footer>
       </Card>
     </div>
   )

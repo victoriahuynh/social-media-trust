@@ -1,4 +1,4 @@
-#Research .card, #Tools .card {
+#Research .card, #Tools .card, #Tool .card {
   text-align: left;
   color: white;
   background-color: #074EE8;
@@ -9,11 +9,11 @@
 }
 
 
-#Research .card-title, #Tools .card-title {
+#Research .card-title, #Tools .card-title, #Tool .card-title {
   font-weight: bold;
 }
 
-#Research .badge, #Tools .badge {
+#Research .badge, #Tools .badge, #Tool .badge {
   background-color: white;
   color: #074EE8;
   margin-right: 5px;
