@@ -1,5 +1,5 @@
 #Definition .jumbotron {
-  height: 500px;
+  min-height: 500px;
 }
 
 #Definition h4 {
