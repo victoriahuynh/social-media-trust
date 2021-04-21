@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div id="Home">
-      <Jumbotron id="jumbotron" style={{ backgroundImage: `url('placeholder.jpg')`, backgroundSize: 'cover' }}>
+      <Jumbotron class="jumbotron" style={{ backgroundImage: `url('blossom_faded.png')`}}>
         <Row>
           <Col><h1>Designing for Trust on Social Media</h1></Col>
           <Col>

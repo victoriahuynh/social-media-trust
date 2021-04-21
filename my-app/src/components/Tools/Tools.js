@@ -40,7 +40,7 @@ export default function Tools() {
       }
       fetchData();
     }
-    console.log('useeffect1called')
+    // console.log('useeffect1called')
   }, [query])
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function Tools() {
     let cols = [];
     tools.forEach((tool, i) => {
       let data = tool.data();
-      let urlPath = "/tool/" + tool.id; //change this
+      let urlPath = "/tool/" + tool.id;
       let tags = [];
       data.tags.forEach((tag, i) => {
         tags.push(
@@ -80,8 +80,10 @@ export default function Tools() {
     })
     if (rows.length > 0) {
       setCards(rows)
-    } else { setCards(['no results... or keep typing'])}
-    console.log('useeffect2called')
+    } else {
+      setCards(['no results... or type the entire tag'])
+    }
+    // console.log('useeffect2called')
   }, [tools])
 
   return (

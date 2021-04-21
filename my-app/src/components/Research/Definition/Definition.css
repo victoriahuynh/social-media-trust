@@ -1,0 +1,18 @@
+#Definition .jumbotron {
+  height: 500px;
+}
+
+#Definition h4 {
+  font-weight: bolder;
+}
+
+#definition-div {
+  background-color: #074EE8;
+  color: white;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+#definition-div p {
+  text-align: justify;
+}

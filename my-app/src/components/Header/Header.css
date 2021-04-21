@@ -3,6 +3,10 @@ header {
   background-color: white;
 }
 
+.dropdown-item {
+  font-weight: bolder;
+}
+
 .nav-link {
   color: black !important;
 }
@@ -11,4 +15,8 @@ header {
   text-decoration: underline;
   text-decoration-color: #074EE8;
   text-decoration-thickness: 3px;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }

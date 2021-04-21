@@ -42,7 +42,7 @@ export default function Research() {
       }
       fetchData();
     }
-    console.log('useeffect1called')
+    // console.log('useeffect1called')
   }, [query])
 
   useEffect(() => {
@@ -85,7 +85,9 @@ export default function Research() {
     })
     if (cards.length > 0) {
       setCards(cards)
-    } else { setCards(['no results... or keep typing'])}
+    } else {
+      setCards(['no results... or type the entire tag'])
+    }
     // console.log('useeffect2called')
   }, [articles, showInsights])
 
