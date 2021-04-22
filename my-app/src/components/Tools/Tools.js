@@ -57,11 +57,19 @@ export default function Tools() {
           </Badge>
         )
       })
+      let platforms = [];
+      data.platform.forEach((platform, i) => {
+        platforms.push(
+          <Badge pill>
+            {platform}
+          </Badge>
+        )
+      })
       cols.push(
         <Col>
           <Card>
             <Card.Header>
-              {tags}
+              {platforms}
             </Card.Header>
             <Card.Body>
               <Card.Title>{data.title}</Card.Title>
@@ -70,6 +78,7 @@ export default function Tools() {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
+              {tags}
               <small><Link to={urlPath}><FontAwesomeIcon icon={faGraduationCap}/>Learn More</Link></small>
             </Card.Footer>
           </Card>
