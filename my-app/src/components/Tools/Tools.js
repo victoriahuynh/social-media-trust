@@ -15,7 +15,7 @@ export default function Tools() {
 
   useEffect(() => {
     setTools([]);
-    if (query != '') {
+    if (query !== '') {
       let splitQuery = query.toLowerCase().split(' ');
       for (var i = 0; i < splitQuery.length; i++) {
         splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
@@ -41,7 +41,7 @@ export default function Tools() {
       fetchData();
     }
     // console.log('useeffect1called')
-  }, [query])
+  }, [query, db])
 
   useEffect(() => {
     let rows = [];
@@ -60,6 +60,9 @@ export default function Tools() {
       cols.push(
         <Col>
           <Card>
+            <Card.Header>
+              {tags}
+            </Card.Header>
             <Card.Body>
               <Card.Title>{data.title}</Card.Title>
               <Card.Text>
@@ -67,13 +70,12 @@ export default function Tools() {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              {tags}
               <small><Link to={urlPath}><FontAwesomeIcon icon={faGraduationCap}/>Learn More</Link></small>
             </Card.Footer>
           </Card>
         </Col>
       );
-      if (i % 3 == 2 || i == tools.length - 1) {
+      if (i % 3 === 2 || i === tools.length - 1) {
         rows.push(<CardDeck>{cols}</CardDeck>);
         cols = [];
       }

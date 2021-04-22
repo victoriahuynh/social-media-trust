@@ -24,7 +24,7 @@ export default function Tool() {
       });
     }
     fetchData();
-  }, [])
+  }, [db])
 
   return (
     <div id="Tool">

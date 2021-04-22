@@ -17,7 +17,7 @@ export default function Research() {
   useEffect(() => {
     setArticles([]);
     setShowInsights([]);
-    if (query != '') {
+    if (query !== '') {
       let splitQuery = query.toLowerCase().split(' ');
       for (var i = 0; i < splitQuery.length; i++) {
         splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
@@ -43,7 +43,7 @@ export default function Research() {
       fetchData();
     }
     // console.log('useeffect1called')
-  }, [query])
+  }, [query, db])
 
   useEffect(() => {
     let cards = []
@@ -69,7 +69,7 @@ export default function Research() {
           <Card.Footer>
             {tags}
             <small>
-              <a href={data.link} target="_blank"><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
+              <a href={data.link} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
               <Button variant="link" onClick={() => { 
                 let newArr =  [...showInsights];
                 newArr[i] = !newArr[i];
@@ -89,7 +89,7 @@ export default function Research() {
       setCards(['no results... or type the entire tag'])
     }
     // console.log('useeffect2called')
-  }, [articles, showInsights])
+  }, [articles, showInsights, db])
 
   return (
     <div id="Research">
