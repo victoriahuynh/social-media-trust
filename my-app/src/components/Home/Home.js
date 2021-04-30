@@ -9,8 +9,8 @@ export default function Home() {
 
   return (
     <div id="Home">
-      <Jumbotron class="jumbotron" style={{ backgroundImage: `url('blossom_faded.png')`}}>
-        <Row>
+      <Jumbotron className="jumbotron jumbotron-fluid" style={{ backgroundImage: `url('blossom_faded.png')`}}>
+        <Row className="align-items-center">
           <Col><h1>Designing for Trust on Social Media</h1></Col>
           <Col>
             <p>An introduction to the methodology of building trust on social media platforms</p>

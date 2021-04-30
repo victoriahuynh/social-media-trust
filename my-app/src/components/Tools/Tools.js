@@ -57,20 +57,9 @@ export default function Tools() {
           </Badge>
         )
       })
-      let platforms = [];
-      data.platform.forEach((platform, i) => {
-        platforms.push(
-          <Badge pill>
-            {platform}
-          </Badge>
-        )
-      })
       cols.push(
         <Col>
           <Card>
-            <Card.Header>
-              {platforms}
-            </Card.Header>
             <Card.Body>
               <Card.Title>{data.title}</Card.Title>
               <Card.Text>
@@ -101,7 +90,12 @@ export default function Tools() {
     <div id="Tools">
       <h1>UX Design Tool Kits</h1>
       <Form>
-        <FormControl type="text" placeholder="Search Keywords, Tags, or Social Media..." className="mr-sm-2" onChange={e => setQuery(e.target.value)}/>
+        <FormControl 
+          type="text" 
+          placeholder="Search Keywords, Tags, or Social Media..." 
+          className="mr-sm-2"
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} 
+          onChange={e => setQuery(e.target.value)}/>
       </Form>
       {cards}
     </div>

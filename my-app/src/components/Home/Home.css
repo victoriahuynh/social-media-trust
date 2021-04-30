@@ -1,3 +1,35 @@
+/* .jumbotron */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .jumbotron h1 {
+      font-size: 4em;
+  }
+  .jumbotron p {
+      font-size: 2em;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .jumbotron h1 {
+      font-size: 6em;
+  }
+  .jumbotron p {
+    font-size: 2.5em;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .jumbotron h1 {
+      font-size: 7em;
+  }
+  .jumbotron p {
+    font-size: 3.5em;
+  }
+}
+
 /* #overview */
 #overview {
   padding: 1.5rem;

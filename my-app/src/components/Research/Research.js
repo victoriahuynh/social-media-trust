@@ -13,6 +13,7 @@ export default function Research() {
   const [cards, setCards] = useState([]);
   const [showInsights, setShowInsights] = useState([false]);
   const [query, setQuery] = useState('');
+ 
 
   useEffect(() => {
     setArticles([]);
@@ -95,7 +96,12 @@ export default function Research() {
     <div id="Research">
       <h1>Annotated Research</h1>
       <Form>
-        <FormControl type="text" placeholder="Search Keywords, Tags, or Articles..." className="mr-sm-2" onChange={e => setQuery(e.target.value)}/>
+        <FormControl 
+          type="text" 
+          placeholder="Search Keywords, Tags, or Articles..." 
+          className="mr-sm-2" 
+          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+          onChange={e => setQuery(e.target.value)}/>
       </Form>
       {cards}
     </div>
