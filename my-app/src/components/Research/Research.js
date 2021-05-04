@@ -53,9 +53,9 @@ export default function Research() {
       let tags = []
       data.tags.forEach((tag, i) => {
         tags.push(
-          <Badge pill>
+          <Button variant="light" value={tag} onClick={e => setQuery(e.target.value)}>
             {tag}
-          </Badge>
+          </Button>
         )
       })
       cards.push(
@@ -71,7 +71,7 @@ export default function Research() {
             {tags}
             <small>
               <a href={data.link} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
-              <Button variant="link" onClick={() => { 
+              <Button variant="link" className="insight-button" onClick={() => { 
                 let newArr =  [...showInsights];
                 newArr[i] = !newArr[i];
                 setShowInsights(newArr);
@@ -95,6 +95,7 @@ export default function Research() {
   return (
     <div id="Research">
       <h1>Annotated Research</h1>
+      <p>Currently showing: {query} <Button onClick={e => setQuery('')}>clear query</Button></p>
       <Form>
         <FormControl 
           type="text" 

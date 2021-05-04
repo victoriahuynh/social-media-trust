@@ -28,7 +28,6 @@ export default function Tool() {
 
   return (
     <div id="Tool">
-      <p>add back button</p>
       <Card>
         <Card.Body>
           <Card.Title>{tool.title}</Card.Title>
