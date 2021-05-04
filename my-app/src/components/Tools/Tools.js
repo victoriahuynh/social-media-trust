@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { Badge, Card, CardDeck, Col, Form, FormControl } from 'react-bootstrap';
+import { Button, Card, CardDeck, Col, Form, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
@@ -52,9 +52,9 @@ export default function Tools() {
       let tags = [];
       data.tags.forEach((tag, i) => {
         tags.push(
-          <Badge pill>
-            {tag}
-          </Badge>
+          <Button className="badge badge-pill" value={tag} onClick={e => setQuery(e.target.value)}>
+          {tag}
+          </Button>
         )
       })
       cols.push(
@@ -89,6 +89,7 @@ export default function Tools() {
   return (
     <div id="Tools">
       <h1>UX Design Tool Kits</h1>
+      <p>Currently showing: {query} <Button onClick={e => setQuery('')}>clear query</Button></p>
       <Form>
         <FormControl 
           type="text" 

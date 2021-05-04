@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Col, Jumbotron, Row } from 'react-bootstrap'
+import { Button, Jumbotron } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faCircle, faUserFriends, faPencilRuler } from '@fortawesome/free-solid-svg-icons'
 import './Home.css'
@@ -9,21 +10,19 @@ export default function Home() {
 
   return (
     <div id="Home">
-      <Jumbotron className="jumbotron jumbotron-fluid" style={{ backgroundImage: `url('blossom_faded.png')`}}>
-        <Row className="align-items-center">
-          <Col><h1>Designing for Trust on Social Media</h1></Col>
-          <Col>
-            <p>An introduction to the methodology of building trust on social media platforms</p>
-            <p><Button variant="primary" href="#overview">LEARN MORE</Button></p>
-          </Col>
-        </Row>
+      <Jumbotron className="jumbotron jumbotron-fluid" style={{backgroundImage: `url('blossom.png')`}}>
+        <div class="jumbotron-inner">
+          <h1>Designing for Trust on Social Media</h1>
+          <p>An introduction to the methodology of building trust on social media platforms</p>
+          <Button variant="primary" href="#overview">LEARN MORE</Button>
+        </div>
       </Jumbotron>
       <div id="overview">
         <h4>PROJECT OVERVIEW</h4>
         <p>
           Social media has changed today’s information and communication landscape. 
           Individuals and communities often use these platforms as a resource for 
-          knowledge sharing. However, a rise in the spread of mis- and disinformation 
+          knowledge sharing. However, a rise in the spread of mis/disinformation 
           has increasingly served to blur the lines between fact and fiction in ways 
           that have eroded trust in these platforms and information itself. As 
           different types of social media platforms work to reestablish trust it is 
@@ -33,19 +32,18 @@ export default function Home() {
       </div>
       <div id="trust">
         <h4>WHAT IS TRUST?</h4>
-        { showText ?
-          <img src="visual_text.svg" alt="visualization of trust"/>
-          :
-          <img src="visual.svg" alt="visualization of trust"/>
-        }
-        <Button variant="link" onClick={() => setShowText(!showText)}>
+        <p>
+          We define trust as the feeling of security and comfort that can stem from 
+          a person or platform. A trusting relationship is formed when a user comes 
+          in with a set of expectations of what they want to get from using the platform 
+          and then uses the platform to assess those expectations.
+        </p>
+        <h5 class="example-heading">Example</h5>
+        <img src="example.svg" />
+        <Link to="/definition">
           <FontAwesomeIcon icon={faChevronRight} className="chevron-icon" />
-          { showText ?
-            'Ba-da-ba-da-ba-be bop bop bodda bope'
-            :
-            'Learn more about our definition of Trust'
-          }
-        </Button>
+          Learn more about our definition of Trust
+        </Link>
       </div>
       <div id="use">
         <div className="column">

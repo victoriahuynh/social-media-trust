@@ -1,7 +1,7 @@
 #Research .card, #Tools .card, #Tool .card {
   text-align: left;
   color: white;
-  background-color: #074EE8;
+  background-color: #296BF9;
 }
 
 #Research a, #Tools a {
@@ -15,7 +15,7 @@
 
 #Research .badge, #Tools .badge, #Tool .badge {
   background-color: white;
-  color: #074EE8;
+  color: #296BF9;
   margin-right: 5px;
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { Badge, Card } from 'react-bootstrap';
+import { Badge, Card, Col, Row } from 'react-bootstrap';
 import firebase from '../../../firebase';
 import './Tool.css';
 import '../../Cards.css';
@@ -32,17 +32,23 @@ export default function Tool() {
         <Card.Body>
           <Card.Title>{tool.title}</Card.Title>
           <Card.Text>
-            <img src={tool.image} alt="placeholder" />
-            {tool.description.split("\\n").map((paragraph, i) => {
-              return (<p>{paragraph}</p>)
-            })}
-            <small>
-              Sources:
-              <br/>
-              {tool.sources.map((source, i) => {
-                return (<li>{source}</li>)
-              })}
-            </small>
+            <Row>
+              <Col>
+                {tool.description.split("\\n").map((paragraph, i) => {
+                  return (<p>{paragraph}</p>)
+                })}
+                <small>
+                  Sources:
+                  <br/>
+                  {tool.sources.map((source, i) => {
+                    return (<li>{source}</li>)
+                  })}
+                </small>
+              </Col>
+              <Col>
+                <img src={tool.image} alt="placeholder" />
+              </Col>
+            </Row>
           </Card.Text>
         </Card.Body>
         <Card.Footer>

@@ -1,5 +1,5 @@
-#Definition .jumbotron {
-  min-height: 500px;
+#Definition {
+  background-color: white;
 }
 
 #Definition h4 {
@@ -7,12 +7,20 @@
 }
 
 #definition-div {
-  background-color: #074EE8;
-  color: white;
-  padding: 1.5rem;
   height: 100%;
+  margin: auto;
+  padding: 1.5rem 0;
+  width: 75vw;
 }
 
-#definition-div p {
-  text-align: justify;
+#definition-div ul {
+  text-align: left;
+}
+
+#definition-div li {
+  padding: 0.5rem 0;
+}
+
+#definition-div img {
+  height: 100vh;
 }

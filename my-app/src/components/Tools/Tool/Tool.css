@@ -1,9 +1,8 @@
-#Tool img {
-  float: right;
-  margin-left: 20px;
-  margin-bottom: 12px;
-}
-
 #Tool .card {
   margin: 20px 10vw;
+}
+
+#Tool img {
+  max-width:100%;
+  max-height:100%;
 }

@@ -1,3 +1,7 @@
+#Home {
+  background-color: white;
+}
+
 /* .jumbotron */
 
 /* Small devices (tablets, 768px and up) */
@@ -32,30 +36,33 @@
 
 /* #overview */
 #overview {
-  padding: 1.5rem;
-  background-color: #074EE8;
-  color: white;
-}
-
-#overview p {
-  text-align: justify;
+  margin: auto;
+  padding: 1.5rem 0;
+  text-align: center;
+  width: 75vw;
 }
 
 /* #trust */
 #trust {
-  padding: 1.5rem;
-  background-color: white;
+  margin: auto;
   overflow: hidden;
+  padding: 1.5rem 0;
+  width: 75vw;
+}
+
+.example-heading {
+  text-align: left;
+}
+
+#trust p {
+  text-align: left;
 }
 
 #trust img {
-  width: 75vw;
-  margin: auto;
-  display: block;
-  height: 90vh;
+  max-width: 100%
 }
 
-#trust button {
+#trust a {
   color: #074EE8;
   float: right;
   font-weight: bold;
@@ -69,9 +76,13 @@
 /* #use */
 
 #use {
-  background-color: #F1CE1E;
   font-weight: bolder;
   overflow: auto;
+}
+
+#use p {
+  width: 75%;
+  margin: auto;
 }
 
 .column {
@@ -79,7 +90,6 @@
   float: left;
   width: 50%;
   margin: auto;
-  border-left: solid 1px #eee;
 }
 
 .icon {
