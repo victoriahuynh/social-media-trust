@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Card , CardDeck, Col, Row } from 'react-bootstrap';
 import './About.css';
 
 class About extends Component {

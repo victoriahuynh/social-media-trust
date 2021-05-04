@@ -45,7 +45,7 @@ export default function Definition() {
             trust in the platform.
           </li>
         </ul>
-        <img src="visual.svg" />
+        <img src="visual.svg" alt="trust visualization"/>
       </div>
     </div>
   )

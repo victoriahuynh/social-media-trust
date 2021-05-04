@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { Badge, Button, Card, Form, FormControl } from 'react-bootstrap';
+import { Button, Card, Form, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
@@ -12,25 +12,51 @@ export default function Research() {
   const [articles, setArticles] = useState([]);
   const [cards, setCards] = useState([]);
   const [showInsights, setShowInsights] = useState([false]);
-  const [query, setQuery] = useState('');
- 
+  // const [query, setQuery] = useState('');
+  const [queries, setQueries] = useState([]);
 
   useEffect(() => {
     setArticles([]);
     setShowInsights([]);
-    if (query !== '') {
-      let splitQuery = query.toLowerCase().split(' ');
-      for (var i = 0; i < splitQuery.length; i++) {
-        splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
-      }
-      let parsedQuery = splitQuery.join(' '); 
+    if (queries[0] === "") { setQueries([]) }
 
+    // if (query !== '') {
+    //   let splitQuery = query.toLowerCase().split(' ');
+    //   for (var i = 0; i < splitQuery.length; i++) {
+    //     if (splitQuery[i] == 'in') {
+    //       continue //LMFAO
+    //     }
+    //     splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
+    //   }
+    //   let parsedQuery = splitQuery.join(' '); 
+
+    //   const fetchData = async() => {
+    //     db.collection('research').where('tags', 'array-contains', parsedQuery).get().then((querySnapshot) => {
+    //       querySnapshot.forEach((doc) => {
+    //         setArticles(prevArticles => [...prevArticles, doc])
+    //       });
+    //     });
+    //   }
+    
+    if (queries.length !== 0) {
+      console.log(queries.length)
+      console.log(queries[0])
+      let parsedQueries = [];
+      queries.forEach((query) => {
+        let splitQuery = query.toLowerCase().split(' ');
+        for (var i = 0; i < splitQuery.length; i++) {
+          splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
+        }
+        parsedQueries.push(splitQuery.join(' '));
+      })
       const fetchData = async() => {
-        db.collection('research').where('tags', 'array-contains', parsedQuery).get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            setArticles(prevArticles => [...prevArticles, doc])
+        parsedQueries.forEach((parsedQuery) => {
+          db.collection('research').where('tags', 'array-contains', parsedQuery).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              setArticles(prevArticles => [...prevArticles, doc])
+            });
           });
-        });
+        })
       }
       fetchData();
     } else {
@@ -44,16 +70,18 @@ export default function Research() {
       fetchData();
     }
     // console.log('useeffect1called')
-  }, [query, db])
+  }, [queries, db])
 
   useEffect(() => {
     let cards = []
-    articles.forEach((article, i) => {
+    let filteredArticles = new Set(articles); //this is not filtering
+    // console.log(filteredArticles)
+    filteredArticles.forEach((article, i) => {
       let data = article.data();
       let tags = []
       data.tags.forEach((tag, i) => {
         tags.push(
-          <Button className="badge badge-pill" value={tag} onClick={e => setQuery(e.target.value)}>
+          <Button className="badge badge-pill" value={tag} onClick={e => setQueries([e.target.value])}>
             {tag}
           </Button>
         )
@@ -68,9 +96,11 @@ export default function Research() {
                 ?
                 <p>
                   <br/> Key Insights: <br/>
-                  {data.insights.map((insight, i) => {
-                    return (<li>{insight}</li>)
-                  })}
+                  <ul>
+                    {data.insights.map((insight, i) => {
+                      return (<li>{insight}</li>)
+                    })}
+                  </ul>
                 </p>
                 :
                 null }
@@ -81,9 +111,9 @@ export default function Research() {
             <small>
               <a href={data.link} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
               <Button variant="link" className="insight-button" onClick={() => { 
-                let newArr =  [...showInsights];
-                newArr[i] = !newArr[i];
-                setShowInsights(newArr);
+                let newShowInsights =  [...showInsights];
+                newShowInsights[i] = !newShowInsights[i];
+                setShowInsights(newShowInsights);
               }}>
                 {showInsights[i] ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}
                 Key Insights
@@ -101,17 +131,34 @@ export default function Research() {
     // console.log('useeffect2called')
   }, [articles, showInsights, db])
 
+  let handleCheckbox = (e) => {
+    // console.log(e.target.value)
+    if (e.target.checked) {
+      setQueries(prevQueries => [...prevQueries, e.target.value])
+    } else {
+      var newQueries = [...queries];
+      var index = newQueries.indexOf(e.target.value)
+      if (index !== -1) {
+        newQueries.splice(index, 1);
+        setQueries(newQueries)
+      }
+    }
+    // console.log(queries)
+  }
+
   return (
     <div id="Research">
       <h1>Annotated Research</h1>
-      <p>Currently showing: {query} <Button onClick={e => setQuery('')}>clear query</Button></p>
+      <p>Currently showing: {queries} <Button onClick={e => setQueries([])}>clear query</Button></p>
+      <input type="checkbox" id="Trust" value="Trust" onChange={handleCheckbox}/><label for="Trust">Trust</label>
+      <input type="checkbox" id="Political" value="Political" onChange={handleCheckbox}/><label for="Political">Political</label>
       <Form>
         <FormControl 
           type="text" 
           placeholder="Search Keywords, Tags, or Articles..." 
           className="mr-sm-2" 
           onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-          onChange={e => setQuery(e.target.value)}/>
+          onChange={e => setQueries([e.target.value])}/>
       </Form>
       {cards}
     </div>

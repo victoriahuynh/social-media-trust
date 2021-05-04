@@ -13,6 +13,6 @@
   padding: 0;
 }
 
-#Research p {
+#Research p, #Research ul {
   margin-bottom: 0;
 }
