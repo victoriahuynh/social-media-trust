@@ -53,7 +53,7 @@ export default function Research() {
       let tags = []
       data.tags.forEach((tag, i) => {
         tags.push(
-          <Button variant="light" value={tag} onClick={e => setQuery(e.target.value)}>
+          <Button className="badge badge-pill" value={tag} onClick={e => setQuery(e.target.value)}>
             {tag}
           </Button>
         )
