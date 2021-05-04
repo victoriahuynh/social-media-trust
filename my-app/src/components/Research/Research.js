@@ -64,7 +64,16 @@ export default function Research() {
             <Card.Title>{data.title}</Card.Title>
             <Card.Text>
               <p>{data.abstract}</p>
-              { showInsights[i] ? <p>Key Insights: <br/> {data.insights}</p> : null }
+              { showInsights[i]
+                ?
+                <p>
+                  <br/> Key Insights: <br/>
+                  {data.insights.map((insight, i) => {
+                    return (<li>{insight}</li>)
+                  })}
+                </p>
+                :
+                null }
             </Card.Text>
           </Card.Body>
           <Card.Footer>

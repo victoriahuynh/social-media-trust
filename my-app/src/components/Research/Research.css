@@ -12,3 +12,7 @@
   font-size: 100%;
   padding: 0;
 }
+
+#Research p {
+  margin-bottom: 0;
+}
