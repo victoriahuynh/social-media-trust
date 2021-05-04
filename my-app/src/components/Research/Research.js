@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { Badge, Button, Card, Form, FormControl } from 'react-bootstrap';
+import { Button, Card, Form, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
@@ -68,9 +68,11 @@ export default function Research() {
                 ?
                 <p>
                   <br/> Key Insights: <br/>
-                  {data.insights.map((insight, i) => {
-                    return (<li>{insight}</li>)
-                  })}
+                  <ul>
+                    {data.insights.map((insight, i) => {
+                      return (<li>{insight}</li>)
+                    })}
+                  </ul>
                 </p>
                 :
                 null }
@@ -81,9 +83,9 @@ export default function Research() {
             <small>
               <a href={data.link} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGraduationCap}/>Full Article</a>
               <Button variant="link" className="insight-button" onClick={() => { 
-                let newArr =  [...showInsights];
-                newArr[i] = !newArr[i];
-                setShowInsights(newArr);
+                let newShowInsights =  [...showInsights];
+                newShowInsights[i] = !newShowInsights[i];
+                setShowInsights(newShowInsights);
               }}>
                 {showInsights[i] ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}
                 Key Insights

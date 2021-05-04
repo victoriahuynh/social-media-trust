@@ -2,6 +2,8 @@ import { Jumbotron } from 'react-bootstrap'
 import './Definition.css';
 
 export default function Definition() {
+  window.scrollTo(0, 0)
+
   return (
     <div id="Definition">
       <Jumbotron style={{ backgroundImage: `url('blossom.png')`}}>
@@ -45,7 +47,7 @@ export default function Definition() {
             trust in the platform.
           </li>
         </ul>
-        <img src="visual.svg" />
+        <img src="visual.svg" alt="trust visualization" />
       </div>
     </div>
   )

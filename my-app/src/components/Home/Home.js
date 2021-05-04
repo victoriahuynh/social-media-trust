@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { Button, Jumbotron } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,7 +5,6 @@ import { faChevronRight, faCircle, faUserFriends, faPencilRuler } from '@fortawe
 import './Home.css'
 
 export default function Home() {
-  const [showText, setShowText] = useState(false);
 
   return (
     <div id="Home">
@@ -39,7 +37,7 @@ export default function Home() {
           and then uses the platform to assess those expectations.
         </p>
         <h5 class="example-heading">Example</h5>
-        <img src="example.svg" />
+        <img src="example.svg" alt="trust example" />
         <Link to="/definition">
           <FontAwesomeIcon icon={faChevronRight} className="chevron-icon" />
           Learn more about our definition of Trust
