@@ -21,7 +21,7 @@ export default function Research() {
     if (query !== '') {
       let splitQuery = query.toLowerCase().split(' ');
       for (var i = 0; i < splitQuery.length; i++) {
-        if (splitQuery[i] == 'in') {
+        if (splitQuery[i] === 'in') {
           continue //LMFAO
         }
         splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
