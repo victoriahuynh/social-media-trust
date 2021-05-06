@@ -23,13 +23,17 @@
   float: right;
 }
 
-#Research form, #Tools form {
+#Research form, #Tools form, #Research .rbt {
   margin: auto;
   width: 50vw;
 }
 
 #Research svg, #Tools svg {
   margin-right: 3px;
+}
+
+.dropdown-item {
+  color: black !important;
 }
 
 /* css moduels bruh moment */

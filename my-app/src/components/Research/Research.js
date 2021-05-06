@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import firebase from '../../firebase';
+import { Typeahead } from 'react-bootstrap-typeahead'; 
 import './Research.css';
 import '../Cards.css';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 export default function Research() {
   const db = firebase.firestore();
@@ -14,6 +16,7 @@ export default function Research() {
   const [showInsights, setShowInsights] = useState([false]);
   // const [query, setQuery] = useState('');
   const [queries, setQueries] = useState([]);
+  const [uniqueTags, setUniqueTags] = useState([]);
 
   useEffect(() => {
     setArticles([]);
@@ -86,6 +89,7 @@ export default function Research() {
           </Button>
         )
       })
+      setUniqueTags(prevTags => [...new Set([...prevTags,...data.tags])]);
       cards.push(
         <Card id={"article_"+article.id}>
           <Card.Body>
@@ -128,7 +132,6 @@ export default function Research() {
     } else {
       setCards(['no results... or type the entire tag'])
     }
-    // console.log('useeffect2called')
   }, [articles, showInsights, db])
 
   let handleCheckbox = (e) => {
@@ -160,6 +163,14 @@ export default function Research() {
           onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           onChange={e => setQueries([e.target.value])}/>
       </Form>
+      <Typeahead
+        multiple
+        placeholder="Search Keywords, Tags, or Articles..."
+        onChange={(selected) => {
+          setQueries(selected);
+        }}
+        options={uniqueTags}
+      />
       {cards}
     </div>
   )
