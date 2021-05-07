@@ -93,7 +93,7 @@ export default function Tools() {
       <Form>
         <FormControl 
           type="text" 
-          placeholder="Search Keywords, Tags, or Social Media..." 
+          placeholder="Search Tags..." 
           className="mr-sm-2"
           onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} 
           onChange={e => setQuery(e.target.value)}/>

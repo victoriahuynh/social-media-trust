@@ -67,10 +67,12 @@ export default function Research() {
             <Card.Title>{data.title}</Card.Title>
             <Card.Text>
               <p>{data.abstract}</p>
+              <br/>
+              <p>Authors: {data.authors}</p>
               { showInsights[i]
                 ?
                 <p>
-                  <br/> Key Insights: <br/>
+                  <br/> Key Insights:
                   <ul>
                     {data.insights.map((insight, i) => {
                       return (<li>{insight}</li>)
@@ -113,7 +115,7 @@ export default function Research() {
       <Form>
         <FormControl 
           type="text" 
-          placeholder="Search Keywords, Tags, or Articles..." 
+          placeholder="Search Tags..." 
           className="mr-sm-2" 
           onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
           onChange={e => setQuery(e.target.value)}/>

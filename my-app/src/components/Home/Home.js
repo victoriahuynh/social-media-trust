@@ -53,7 +53,7 @@ export default function Home() {
           <p>Users can learn about the growing issues of misinformation in social media and actively become participants in fighting it.</p>
         </div>
         <div className="column">
-        <span className="icon fa-stack fa-3x">
+          <span className="icon fa-stack fa-3x">
             <FontAwesomeIcon icon={faCircle} className="circle-icon fa-stack-2x"/>
             <FontAwesomeIcon icon={faPencilRuler} className="inner-icon fa-stack-1x"/>
           </span>
