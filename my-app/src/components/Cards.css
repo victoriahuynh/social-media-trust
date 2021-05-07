@@ -23,7 +23,7 @@
   float: right;
 }
 
-#Research form, #Tools form, #Research .rbt {
+#Research .rbt, #Tools .rbt {
   margin: auto;
   width: 50vw;
 }

@@ -3,7 +3,7 @@ header {
   background-color: white;
 }
 
-.dropdown-item {
+header .dropdown-item {
   font-weight: bolder;
 }
 

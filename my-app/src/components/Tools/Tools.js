@@ -4,30 +4,44 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import firebase from '../../firebase';
+import { Typeahead } from 'react-bootstrap-typeahead'; 
 import './Tools.css';
 import '../Cards.css';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 export default function Tools() {
   const db = firebase.firestore();
   const [tools, setTools] = useState([]);
   const [cards, setCards] = useState([]);
-  const [query, setQuery] = useState('');
+  const [queries, setQueries] = useState([]);
+  const [uniqueTags, setUniqueTags] = useState([]);
 
+  // generate tags on page load
+  useEffect(()=> {
+    const fetchData = async() => {
+      db.collection('tools').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          setUniqueTags(prevTags => [...new Set([...prevTags,...doc.data().tags].sort())]);
+        });
+      });
+    }
+    fetchData();
+  }, [db])
+
+  // grab tools
   useEffect(() => {
     setTools([]);
-    if (query !== '') {
-      let splitQuery = query.toLowerCase().split(' ');
-      for (var i = 0; i < splitQuery.length; i++) {
-        splitQuery[i] = splitQuery[i].charAt(0).toUpperCase() + splitQuery[i].substring(1);     
-      }
-      let parsedQuery = splitQuery.join(' '); 
+    if (queries[0] === "") { setQueries([]) }
 
+    if (queries.length !== 0) {
       const fetchData = async() => {
-        db.collection('tools').where('tags', 'array-contains', parsedQuery).get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            setTools(prevTools => [...prevTools, doc])
+        queries.forEach((query) => {
+          db.collection('tools').where('tags', 'array-contains', query).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              setTools(prevTools => [...prevTools, doc])
+            });
           });
-        });
+        })
       }
       fetchData();
     } else {
@@ -40,9 +54,9 @@ export default function Tools() {
       }
       fetchData();
     }
-    // console.log('useeffect1called')
-  }, [query, db])
+  }, [queries, db])
 
+  // display tools
   useEffect(() => {
     let rows = [];
     let cols = [];
@@ -52,7 +66,7 @@ export default function Tools() {
       let tags = [];
       data.tags.forEach((tag, i) => {
         tags.push(
-          <Button className="badge badge-pill" value={tag} onClick={e => setQuery(e.target.value)}>
+          <Button className="badge badge-pill" value={tag} onClick={e => setQueries([e.target.value])}>
           {tag}
           </Button>
         )
@@ -83,21 +97,19 @@ export default function Tools() {
     } else {
       setCards(['no results... or type the entire tag'])
     }
-    // console.log('useeffect2called')
   }, [tools])
 
   return (
     <div id="Tools">
       <h1>UX Design Tool Kits</h1>
-      <p>Currently showing: {query} <Button onClick={e => setQuery('')}>clear query</Button></p>
-      <Form>
-        <FormControl 
-          type="text" 
-          placeholder="Search Keywords, Tags, or Social Media..." 
-          className="mr-sm-2"
-          onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} 
-          onChange={e => setQuery(e.target.value)}/>
-      </Form>
+      <Typeahead
+        id="basic-typeahead-multiple"
+        multiple
+        placeholder="Search Tags..."
+        onChange={(selected) => { setQueries(selected);}}
+        options={uniqueTags}
+      />
+      <p>Currently showing: {queries} <Button onClick={e => setQueries([])}>clear query</Button></p>
       {cards}
     </div>
   )
