@@ -45,7 +45,7 @@ export default function Tool() {
                   })}
                 </small>
               </Col>
-              <Col>
+              <Col className="image-col">
                 <img src={tool.image} alt="placeholder" />
               </Col>
             </Row>
