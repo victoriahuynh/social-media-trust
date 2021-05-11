@@ -35,7 +35,6 @@ export default function Research() {
     setShowInsights([]);
     if (queries[0] === "") { setQueries([]) }
 
-    console.log(queries)
     if (queries.length !== 0) {
       const fetchData = async() => {
         queries.forEach((query) => {

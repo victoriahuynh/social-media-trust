@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { Button, Card, CardDeck, Col, Form, FormControl } from 'react-bootstrap';
+import { Button, Card, CardDeck, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
@@ -73,7 +73,7 @@ export default function Tools() {
       })
       cols.push(
         <Col>
-          <Card>
+          <Card key={tool.id}>
             <Card.Body>
               <Card.Title>{data.title}</Card.Title>
               <Card.Text>
