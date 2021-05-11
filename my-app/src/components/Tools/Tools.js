@@ -95,7 +95,7 @@ export default function Tools() {
     if (rows.length > 0) {
       setCards(rows)
     } else {
-      setCards(['no results... or type the entire tag'])
+      setCards(['fetching results'])
     }
   }, [tools])
 
@@ -108,8 +108,8 @@ export default function Tools() {
         placeholder="Search Tags..."
         onChange={(selected) => { setQueries(selected);}}
         options={uniqueTags}
+        selected={queries}
       />
-      <p>Currently showing: {queries} <Button onClick={e => setQueries([])}>clear query</Button></p>
       {cards}
     </div>
   )

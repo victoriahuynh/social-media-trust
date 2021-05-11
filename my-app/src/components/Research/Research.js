@@ -114,7 +114,7 @@ export default function Research() {
     if (cards.length > 0) {
       setCards(cards)
     } else {
-      setCards(['no results... or type the entire tag'])
+      setCards(['fetching results'])
     }
   }, [articles, showInsights])
 
@@ -127,8 +127,8 @@ export default function Research() {
         placeholder="Search Tags..."
         onChange={(selected) => { setQueries(selected);}}
         options={uniqueTags}
+        selected={queries}
       />
-      <p>Currently showing: {queries} <Button onClick={e => setQueries([])}>clear query</Button></p>
       {cards}
     </div>
   )
