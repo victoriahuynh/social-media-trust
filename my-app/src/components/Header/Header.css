@@ -1,0 +1,22 @@
+header {
+  font-weight: bolder;
+  background-color: white;
+}
+
+header .dropdown-item {
+  font-weight: bolder;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  text-decoration-color: #296BF9;
+  text-decoration-thickness: 3px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
