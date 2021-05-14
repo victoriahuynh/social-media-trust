@@ -71,7 +71,7 @@ export default () => {
           <Heading>Presentation Video</Heading>
           <VerticalSpacer></VerticalSpacer>
           <StyledResponsiveVideoEmbed
-              url="https://www.youtube.com/embed/1lrh1SnyptA"
+              url="https://www.youtube.com/embed/Fwa0J7LBo4c"
               background="transparent"
             />
         </SingleColumn>
