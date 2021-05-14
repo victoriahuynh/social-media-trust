@@ -1,21 +1,31 @@
 import React from "react";
+import './About.css';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import styled from "styled-components";
 import tw from "twin.macro";
-import MainFeature1 from "components/features/TwoColWithSteps.js";
-// import MainFeature2 from "components/features/TwoColSingleFeatureWithStats.js";
-// import MainFeature3 from "components/features/TwoColSingleFeatureWithStats2.js";
-// import Features from "components/features/ThreeColSimple.js";
+import MainFeature from "components/features/TwoColWithSteps.js";
 import Features from "components/features/ThreeColWithSideImage.js";
 import TeamCardGrid from "components/cards/ProfileThreeColGrid.js";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import { SectionHeading } from "components/misc/Headings.js";
+import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
 
-import SupportIconImage from "images/support-icon.svg";
-import ShieldIconImage from "images/shield-icon.svg";
-import CustomerLoveIconImage from "images/simple-icon.svg";
+import SupportIconImage from "images/book-solid.svg";
+import ShieldIconImage from "images/pencil-ruler-solid.svg";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 const Heading = tw(SectionHeading)`w-full`;
 const VerticalSpacer = tw.div`mt-10 w-full`;
+const Container = tw.div`relative`;
+const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
+const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
+  padding-bottom: 56.25% !important;
+  padding-top: 0px !important;
+  ${tw`rounded`}
+  iframe {
+    ${tw`rounded bg-black shadow-xl`}
+  }
+`;
+
 const steps = [
   {
     heading: "Cause",
@@ -34,7 +44,7 @@ const steps = [
 export default () => {
   return (
     <AnimationRevealPage>
-      <MainFeature1
+      <MainFeature
         subheading={<Subheading>Project Context</Subheading>}
         heading="Designing for Trust On Social Media"
         imageSrc="graphic.png"
@@ -56,9 +66,16 @@ export default () => {
           }
         ]}
       />
-      <Heading>Presentation Video</Heading>
-      <VerticalSpacer></VerticalSpacer>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/1lrh1SnyptA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <Container>
+        <SingleColumn>
+          <Heading>Presentation Video</Heading>
+          <VerticalSpacer></VerticalSpacer>
+          <StyledResponsiveVideoEmbed
+              url="https://www.youtube.com/embed/1lrh1SnyptA"
+              background="transparent"
+            />
+        </SingleColumn>
+      </Container>
       <TeamCardGrid 
         subheading={<Subheading>About Us</Subheading>}
       />

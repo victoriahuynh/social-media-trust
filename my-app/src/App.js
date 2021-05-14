@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "tailwindcss/dist/base.css"
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Research from './components/Research/Research';

@@ -14,7 +14,7 @@ export default ({ url, background="black", className="video" }) => {
       }}
     >
       <iframe
-        title="Embeded Video"
+        title="Embedded Video"
         style={{
           position: "absolute",
           top: 0,

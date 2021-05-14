@@ -177,6 +177,7 @@ module.exports = {
       '96': '24rem',
       '128': '32rem',
       '144': '36rem',
+      'custom': '95rem'
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
@@ -293,6 +294,7 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
+      '7xl': '5rem'
     },
     fontWeight: {
       hairline: '100',
