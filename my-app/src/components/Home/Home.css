@@ -8,9 +8,10 @@
 
 /* .jumbotron */
 
+/*
 h1 {
   text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
-}
+} */
 
 /* (768px and below) */
 @media (max-width: 768px) {
