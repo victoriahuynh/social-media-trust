@@ -24,3 +24,10 @@
 #definition-div img {
   height: 96vh;
 }
+
+/* (768px and below) */
+@media (max-width: 768px) {
+  .trust-visual {
+    width: 100%;
+  }
+}

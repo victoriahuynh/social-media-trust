@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <Navbar>
         <Navbar.Brand href="/">
-          <img src="/CenterInformedPublic_UW.png" width='300px' alt="Center for an Informed Public logo" />
+          <img src="/CenterInformedPublic_UW.png" width='300px' alt="Center for an Informed Public logo" className="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>

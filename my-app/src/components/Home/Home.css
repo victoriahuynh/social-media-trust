@@ -22,6 +22,9 @@ h1 {
   .jumbotron p {
       font-size: 1em;
   }
+  .jumbotron .btn {
+    display: none;
+  }
 }
 
 /* Small devices (tablets, 768px and up) */

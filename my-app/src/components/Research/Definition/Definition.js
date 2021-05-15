@@ -51,9 +51,7 @@ export default function Definition() {
             </ul>
           </Col>
           <Col>
-            <div class="img-magnifier-container">
-              <img src="visual_text.svg" alt="trust visualization" />
-            </div>
+              <img src="visual_text.svg" alt="trust visualization" class="trust-visual" />
           </Col>
         </Row>
       </div>
