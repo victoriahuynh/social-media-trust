@@ -58,7 +58,7 @@ export default ({ cards = null, heading = "Our Sponsor", subheading = "ABOUT US"
     },
     { 
       title: "Rachel E. Moran",
-      description: "Rachel is a postdoctoral researcher with the CIP. She provided additional guidance on our project, especially in regards to our research and literature review. "
+      description: "Rachel is a postdoctoral researcher with the CIP. She provided additional guidance on our project, especially in regard to our research and literature review. "
     }
   ];
 

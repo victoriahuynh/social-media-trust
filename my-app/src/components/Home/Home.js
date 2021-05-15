@@ -16,7 +16,7 @@ export default function Home() {
         </div>
       </Jumbotron>
       <div id="overview">
-        <h4>PROJECT OVERVIEW</h4>
+        <h3>PROJECT OVERVIEW</h3>
         <p>
           Social media has changed today’s information and communication landscape. 
           Individuals and communities often use these platforms as a resource for 
@@ -29,7 +29,7 @@ export default function Home() {
         </p>
       </div>
       <div id="trust">
-        <h4>WHAT IS TRUST?</h4>
+        <h3>WHAT IS TRUST?</h3>
         <p>
           We define trust as the feeling of security and comfort that can stem from 
           a person or platform. A trusting relationship is formed when a user comes 

@@ -4,6 +4,7 @@
 
 #overview, #trust {
   border-bottom: solid 2px #eee;
+
 }
 
 /* .jumbotron */
@@ -31,6 +32,9 @@ h1 {
   .jumbotron p {
       font-size: 1em;
   }
+  #overview p, #trust p, #use p {
+    font-size: 0.75em;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -40,6 +44,9 @@ h1 {
   }
   .jumbotron p {
     font-size: 2em;
+  }
+  #overview p, #trust p, #use p {
+    font-size: 1em;
   }
 }
 
@@ -51,21 +58,34 @@ h1 {
   .jumbotron p {
     font-size: 2.5em;
   }
+  #overview p, #trust p, #use p {
+    font-size: 1.25em;
+  }
 }
 
 /* #overview */
 #overview {
   margin: auto;
-  padding: 1.5rem 0;
+  padding: 3rem 0;
   text-align: center;
   width: 75vw;
+}
+
+#overview h3, #trust h3 {
+  padding-bottom: 1rem;
+}
+
+#overview p {
+  width: 90%;
+  margin: auto;
+  text-align: left;
 }
 
 /* #trust */
 #trust {
   margin: auto;
   overflow: hidden;
-  padding: 1.5rem 0;
+  padding: 3rem 0;
   width: 75vw;
 }
 
@@ -75,16 +95,21 @@ h1 {
 
 #trust p {
   text-align: left;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 4rem;
 }
 
 #trust img {
-  max-width: 100%
+  max-width: 100%;
+  margin: auto;
 }
 
 #trust a {
   color: #296BF9;
   float: right;
   font-weight: bold;
+  padding-top: 1rem;
 }
 
 .chevron-icon {
@@ -97,6 +122,7 @@ h1 {
 #use {
   font-weight: bolder;
   overflow: auto;
+  padding: 3rem 0;
 }
 
 #use p {

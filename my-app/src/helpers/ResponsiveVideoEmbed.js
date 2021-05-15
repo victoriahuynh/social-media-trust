@@ -14,7 +14,7 @@ export default ({ url, background="black", className="video" }) => {
       }}
     >
       <iframe
-        title="Embedded Video"
+        title="Presentation Video"
         style={{
           position: "absolute",
           top: 0,
@@ -24,6 +24,8 @@ export default ({ url, background="black", className="video" }) => {
         }}
         src={url}
         frameBorder="0"
+        allow= "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
       />
     </div>
   );

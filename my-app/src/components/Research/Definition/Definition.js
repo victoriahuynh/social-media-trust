@@ -9,7 +9,7 @@ export default function Definition() {
       <Jumbotron style={{ backgroundImage: `url('blossom.png')`}}>
         <div class="jumbotron-inner">
           <h1>What is Trust?</h1>
-          <p>Our definition of Trust in the context of Social Media.</p>
+          <p>Our definition of Trust in the context of Social Media</p>
         </div>
       </Jumbotron>
       <div id="definition-div">
