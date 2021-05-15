@@ -1,5 +1,7 @@
 # Designing for Trust on Social Media
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/71002a06-9f78-4a28-9921-591c4f7e07db/deploy-status)](https://app.netlify.com/sites/social-media-trust/deploys)
+
 ## Description
 
 This website was originally created for an iSchool Senior Capstone project. It showcases our conducted research as well as a toolkit based off that research, which is a resource for designers to learn more about design features social media platforms use to build trust.
