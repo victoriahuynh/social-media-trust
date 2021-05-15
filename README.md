@@ -4,7 +4,7 @@
 
 This website was originally created for an iSchool Senior Capstone project. It showcases our conducted research as well as a toolkit based off that research, which is a resource for designers to learn more about design features social media platforms use to build trust.
 
-You can find the live site [https://social-media-trust.netlify.app/](here).
+You can find the live site [here](https://social-media-trust.netlify.app/).
 
 ## Technologies 
 
@@ -23,7 +23,7 @@ Clone the repository to your machine. In the project directory, install dependen
 Then run `npm start`, which will run the app in development mode. 
 
 ## Attributions
-- [Freepik Storyset](https://storyset.com/illustration/team-work/amico) - Illustration
+- [Freepik Storyset](https://storyset.com/illustration/team-work/amico) -  Landing Page Illustration
 - [FontAwesome](http://fontawesome.com/) - Fonts and Icons
 - [Treact](https://owaiskhan.me/post/free-tailwindcss-react-ui-kit) - UI Components 
 - [React Bootstrap Typeahead](https://github.com/ericgio/react-bootstrap-typeahead) - Typeahead Component
