@@ -7,8 +7,6 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { SectionDescription } from "components/misc/Typography.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as ChevronDownIcon } from "feather-icons/dist/icons/chevron-down.svg";
-import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-7.svg";
-import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-8.svg";
 
 const Subheading = tw(SubheadingBase)`mb-4 text-center`;
 const Heading = tw(SectionHeading)`w-full`;
@@ -28,15 +26,6 @@ const QuestionToggleIcon = motion(styled.span`
   }
 `);
 const Answer = motion(tw.dd`pointer-events-auto text-sm sm:text-base leading-relaxed`);
-
-const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
-  ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-56 w-56 opacity-15 transform translate-x-2/3 -translate-y-12 text-teal-400`}
-`;
-const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
-  ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-64 w-64 opacity-15 transform -translate-x-2/3 text-primary-500`}
-`;
-
-
 
 export default ({
   subheading = "WHAT'S NEXT",
@@ -114,8 +103,6 @@ export default ({
           </FAQSContainer>
         </Column>
       </ContentWithPaddingXl>
-      <DecoratorBlob1/>
-      <DecoratorBlob2 />
     </Container>
   );
 };

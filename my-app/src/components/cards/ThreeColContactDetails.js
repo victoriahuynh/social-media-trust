@@ -6,8 +6,6 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
 
-import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
-
 const Container = tw.div`relative`;
 
 const ThreeColumnContainer = styled.div`
@@ -45,10 +43,6 @@ const Card = styled.div`
   }
 `;
 
-const DecoratorBlob = styled(SvgDecoratorBlob3)`
-  ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
-`;
-
 export default ({ cards = null, heading = "Our Sponsor", subheading = "ABOUT US", description = "We are sponsored by the Center for an Informed Public (CIP) at the University of Washington. The CIP's mission is to \"to resist strategic misinformation, promote an informed society, and strengthen democratic discourse.\"" }) => {
   /*
    * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
@@ -63,7 +57,7 @@ export default ({ cards = null, heading = "Our Sponsor", subheading = "ABOUT US"
       description: "Emily is a Ph.D student in the iSchool. She was our main point of contact with our sponsor and worked with and supported us throughout our project."
     },
     { 
-      title: "Rachel Moran",
+      title: "Rachel E. Moran",
       description: "Rachel is a postdoctoral researcher with the CIP. She provided additional guidance on our project, especially in regards to our research and literature review. "
     }
   ];
@@ -90,7 +84,6 @@ export default ({ cards = null, heading = "Our Sponsor", subheading = "ABOUT US"
           </Column>
         ))}
       </ThreeColumnContainer>
-      <DecoratorBlob />
     </Container>
   );
 };

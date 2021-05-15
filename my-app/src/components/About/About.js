@@ -11,8 +11,8 @@ import Sponsor from "components/cards/ThreeColContactDetails.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
 
-import SupportIconImage from "images/book-solid.svg";
-import ShieldIconImage from "images/pencil-ruler-solid.svg";
+import BookImage from "images/book-solid.svg";
+import ToolkitImage from "images/pencil-ruler-solid.svg";
 import TeamWorkAmico from "images/teamwork-amico.svg";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
@@ -58,13 +58,13 @@ export default () => {
         subheading="OUR PROJECT"
         cards={[
           {
-            imageSrc: SupportIconImage,
+            imageSrc: BookImage,
             title: "Annotated Bibliography",
             description: "Users can view and search through the research that went into creating our design toolkit.",
             url: "/research"
           },
           {
-            imageSrc: ShieldIconImage,
+            imageSrc: ToolkitImage,
             title: "Design Toolkit",
             description: "Designers can search tags of interest, where they can find more information and recommendations on design features meant to build trust in the platform.",
             url: "/tools"
