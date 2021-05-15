@@ -27,7 +27,7 @@ const QuestionToggleIcon = motion(styled.span`
     ${tw`w-6 h-6`}
   }
 `);
-const Answer = motion(tw.dd`pointer-events-none text-sm sm:text-base leading-relaxed`);
+const Answer = motion(tw.dd`pointer-events-auto text-sm sm:text-base leading-relaxed`);
 
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-56 w-56 opacity-15 transform translate-x-2/3 -translate-y-12 text-teal-400`}
@@ -39,29 +39,23 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 
 
 export default ({
-  subheading = "FAQS",
-  heading = "You have Questions ?",
-  description = "And we have got answers to all of them. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  subheading = "WHAT'S NEXT",
+  heading = "Project Status",
+  description = "Our team is no longer working on this project. We have handed ownership off to our sponsor.",
   faqs = [
     {
-      question: "Is lunch provided free of cost ?",
+      question: "Who is the new owner and how can I contact them?",
       answer:
-        "Yes, it is, if you have a membership with us. Otherwise it is charged as per the menu. Some limits do apply as to how much items can be included in your lunch. This limit is enough for any one person and merely exists to discourage abusal of the system."
+        "The new owner is Emily Porter, who can be contacted by email at eeporter@uw.edu.",
+      url:"",
+      link:""
     },
     {
-      question: "Do you have 2 Bedroom suites ?",
+      question: "Is this project's source code viewable?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      question: "Are Wi-Fi costs included in the price ?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      question: "Where can I reach you for support ?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "You can find our code repository on GitHub, linked ",
+      url:"https://github.com/victoriahuynh/social-media-trust",
+      link:"here."
     }
   ]
 }) => {
@@ -113,7 +107,7 @@ export default ({
                   animate={activeQuestionIndex === index ? "open" : "collapsed"}
                   transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                 >
-                  {faq.answer}
+                  {faq.answer} <a href={faq.url}>{faq.link}</a>
                 </Answer>
               </FAQ>
             ))}

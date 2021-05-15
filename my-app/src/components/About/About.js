@@ -4,13 +4,16 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import styled from "styled-components";
 import tw from "twin.macro";
 import MainFeature from "components/features/TwoColWithSteps.js";
-import Features from "components/features/ThreeColWithSideImage.js";
+import Features from "components/features/ThreeColSimple.js";
 import TeamCardGrid from "components/cards/ProfileThreeColGrid.js";
+import Questions from "components/faqs/SingleCol.js";
+import Sponsor from "components/cards/ThreeColContactDetails.js";
 import { SectionHeading } from "components/misc/Headings.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
 
 import SupportIconImage from "images/book-solid.svg";
 import ShieldIconImage from "images/pencil-ruler-solid.svg";
+import TeamWorkAmico from "images/teamwork-amico.svg";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 const Heading = tw(SectionHeading)`w-full`;
@@ -43,11 +46,11 @@ const steps = [
 
 export default () => {
   return (
-    <AnimationRevealPage>
+    <AnimationRevealPage disabled>
       <MainFeature
-        subheading={<Subheading>Project Context</Subheading>}
+        subheading={<Subheading>Problem Overview</Subheading>}
         heading="Designing for Trust On Social Media"
-        imageSrc="graphic.png"
+        imageSrc={TeamWorkAmico}
         steps={steps}
       />
       <Features
@@ -57,12 +60,14 @@ export default () => {
           {
             imageSrc: SupportIconImage,
             title: "Annotated Bibliography",
-            description: "Users can view the research that went into creating the toolkit."
+            description: "Users can view and search through the research that went into creating our design toolkit.",
+            url: "/research"
           },
           {
             imageSrc: ShieldIconImage,
             title: "Design Toolkit",
-            description: "Designers can search tags of interest, where they can find more information and recommendations on design features meant to build trust in the platform."
+            description: "Designers can search tags of interest, where they can find more information and recommendations on design features meant to build trust in the platform.",
+            url: "/tools"
           }
         ]}
       />
@@ -71,7 +76,7 @@ export default () => {
           <Heading>Presentation Video</Heading>
           <VerticalSpacer></VerticalSpacer>
           <StyledResponsiveVideoEmbed
-              url="https://www.youtube.com/embed/Fwa0J7LBo4c"
+              url="https://www.youtube.com/embed/4RxTF8Wxh0M"
               background="transparent"
             />
         </SingleColumn>
@@ -79,6 +84,8 @@ export default () => {
       <TeamCardGrid 
         subheading={<Subheading>About Us</Subheading>}
       />
+      <Sponsor />
+      <Questions />
     </AnimationRevealPage>
   );
 };

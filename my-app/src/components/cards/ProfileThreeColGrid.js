@@ -27,7 +27,10 @@ const CardContent = styled.div`
   }
   .name {
     ${tw`mt-1 text-xl font-medium text-gray-900`}
-  9
+  }
+  .description {
+    ${tw`mt-1 w-3/4 text-base font-medium text-secondary-200`}
+  }
 `
 
 const CardLinks = styled.div`
@@ -43,28 +46,54 @@ const CardLinks = styled.div`
 export default ({
   heading = "Our Team",
   subheading = "About Us",
-  description = "We were sponsored by the Center for the Informed Public (CIP). We worked with a PhD student in the iSchool as well as a postdoctoral researcher in the CIP. This project has been handed off to the sponsor. The new owner is Emily Porter, who can be contacted at eeporter@uw.edu. Our team is no longer working on the project.",
   cards = [
     {
       imageSrc: "headshots/aaron.jpg",
       position: "Project Manager / Designer",
       name: "Aaron Zhao",
-      
+      description: "Aaron is going into his senior year as an Informatics student. He is actively involved in the iSchool community and will be serving as next year's IUGA president.",
+      links: [
+        {
+          url: "https://www.linkedin.com/in/zhaoaaron/",
+          icon: LinkedinIcon,
+        },
+      ],
     },
     {
       imageSrc: "headshots/harki.png",
       position: "Researcher / Designer",
       name: "Harkiran Saluja",
+      description: "Harkiran is graduating with the Informatics HCI track and a Gender, Women & Sexuality Studies Minor. After graduation, she will be pursuing a Master of Human-Computer Interaction at CMU.",
+      links: [
+        {
+          url: "https://www.linkedin.com/in/harkiran-kaur-saluja/",
+          icon: LinkedinIcon,
+        },
+      ],
     },
     {
-      imageSrc: "headshots/vicky.png",
+      imageSrc: "headshots/victoria.jpg",
       position: "Developer",
       name: "Victoria Huynh",
+      description: "Victoria is graduating with the Informatics HCI track and an Entrepreneurship Minor. After graduation, she will be working full-time as a software engineer at Atlassian.",
+      links: [
+        {
+          url: "https://www.linkedin.com/in/huynhvictoria/",
+          icon: LinkedinIcon,
+        },
+      ],
     },
     {
       imageSrc: "headshots/jill.jpg",
       position: "Developer",
       name: "Jill Nguyen",
+      description: "Jill is graduating with the Informatics custom track. After graduation, she will be working full-time as a software engineer at Amazon.",
+      links: [
+        {
+          url: "hhttps://www.linkedin.com/in/jill-nguyen/",
+          icon: LinkedinIcon,
+        },
+      ],
     },
   ]
 }) => {
@@ -74,7 +103,6 @@ export default ({
         <HeadingContainer>
           {subheading && <Subheading>{subheading}</Subheading>}
           {heading && <Heading>{heading}</Heading> }
-          {description && <Description>{description}</Description> }
         </HeadingContainer>
         <Cards>
           {cards.map((card, index) => (
@@ -83,6 +111,14 @@ export default ({
               <CardContent>
                 <span className="position">{card.position}</span>
                 <span className="name">{card.name}</span>
+                <span className="description">{card.description}</span>
+                <CardLinks>
+                  {card.links.map((link, linkIndex) => (
+                    <a key={linkIndex} className="link" href={link.url}>
+                      <link.icon className="icon" />
+                    </a>
+                  ))}
+                </CardLinks>
               </CardContent>
             </Card>
           ))}

@@ -35,7 +35,7 @@ const Card = styled.a`
   }
 
   .description {
-    ${tw`mt-4 text-sm font-medium text-secondary-300`}
+    ${tw`mt-4 text-lg font-medium text-secondary-200`}
   }
 
   .link {
@@ -71,7 +71,7 @@ export default ({
       url: "https://reddit.com"
     }
   ],
-  linkText = "Learn More",
+  linkText = "View Feature",
   heading = "",
   subheading = "",
   description = "",
